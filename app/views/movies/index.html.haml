@@ -1,12 +1,13 @@
 -#  This file is app/views/movies/index.html.haml
 %h1 All Movies
 
+
 %table#movies
   %thead
     %tr
-      %th Movie Title
+      %th= link_to "Movie Title", request.parameters.merge({:sort => "title ASC"}), :id => "title_header1"
       %th Rating
-      %th Release Date
+      %th= link_to "Release Date", request.parameters.merge({:sort => "release_date ASC"}), :id => "release_date_header"
       %th More Info
   %tbody
     - @movies.each do |movie|
