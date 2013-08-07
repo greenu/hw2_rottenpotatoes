@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
     @checkedrating = params[:ratings]
     if @checkedrating.nil? 
       @checkedrating= Hash.new
-      @all_ratings.each {|r| @checkedrating[r.to_sym] = r}
+      @all_ratings.each {|r| @checkedrating[r] = 1}
     end
     @movies = Movie.where(:rating => @checkedrating.keys).order(params[:sort]).all
   end
